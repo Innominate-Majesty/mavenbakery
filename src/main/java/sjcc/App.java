@@ -7,24 +7,14 @@ public class App
 {
     public static void main( String[] args )
     {
+        List<Cupcake> cupcakes = JSONFile.readCupcakes("cupcake_3906.json");
 
-        //Read cupcakes from the JSON file
-        JSONArray jsonArray = JSONFile.readArray(src/main/java/sjcc/cupcake_3906.json);
+        //sorting the Array
+        List<Cupcake> sortedCupcakes = Sorters.insertionSort(cupcakes);
 
-        //converting JSONArray to List<Cupcake>
-        List<Cupcake> cupcakes = convertJsonArrayToCupcakesList(jsonArray);
-
-        //sorting the array
-        List<Cupcake> sortedCupcakes = CupcakeSorter.insertionSort(cupcakes);
-
-        //printing sorted cupcakes
+        //Printing the sorted cupcakes
         for (Cupcake cupcake : sortedCupcakes) {
             System.out.println(cupcake);
         }
-    }
-    
-    private static List<Cupcake> convertJsonArraytoCupcakesList(JSONArray jsonArray) {
-
-        return null;
     }
 }
