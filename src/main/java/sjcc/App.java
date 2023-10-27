@@ -7,8 +7,6 @@ import java.net.URL;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.HashMap;
-import java.util.Map;
 
 
 public class App {
@@ -26,7 +24,7 @@ public class App {
                 sortedCupcakes.get(i).setId(i + 1);
             }
 
-            System.out.println("ID                            Name                      Price             Frosting");
+            System.out.println("ID                            Name                      Price                           Frosting");
             System.out.println("_______________________________________________________________________________________________________________");
 
 
@@ -38,7 +36,7 @@ public class App {
                 totalPrice += cupcake.getPrice();
             }
 
-            System.out.println("_______________________________________________________________________________________________________________");
+            System.out.println("_______________________________________________________________________________________________________________\n");
             System.out.println("\n                                                Details");
             System.out.println("_______________________________________________________________________________________________________________");
             System.out.println("\nNumber of items : " + sortedCupcakes.size());
