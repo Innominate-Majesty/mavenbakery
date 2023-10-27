@@ -7,6 +7,8 @@ import java.net.URL;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class App {
@@ -30,6 +32,7 @@ public class App {
 
             //Printing the sorted cupcakes
             double totalPrice = 0;
+
             for (Cupcake cupcake : sortedCupcakes) {
                 System.out.println(cupcake);
                 totalPrice += cupcake.getPrice();
