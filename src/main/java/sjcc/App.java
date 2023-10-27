@@ -1,13 +1,30 @@
 package sjcc;
 
-/**
- * Hello world!
- *
- */
+
+import java.util.List;
+
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+
+        //Read cupcakes from the JSON file
+        JSONArray jsonArray = JSONFile.readArray();
+
+        //converting JSONArray to List<Cupcake>
+        List<Cupcake> cupcakes = convertJsonArrayToCupcakesList(jsonArray);
+
+        //sorting the array
+        List<Cupcake> sortedCupcakes = CupcakeSorter.insertionSort(cupcakes);
+
+        //printing sorted cupcakes
+        for (Cupcake cupcake : sortedCupcakes) {
+            System.out.println(cupcake);
+        }
+    }
+    
+    private static List<Cupcake> convertJsonArraytoCupcakesList(JSONArray jsonArray) {
+
+        return null;
     }
 }
