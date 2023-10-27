@@ -1,5 +1,8 @@
 package sjcc;
 
+import org.json.JSONObject;
+import org.json.JSONArray;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cupcake {
@@ -65,7 +68,19 @@ public class Cupcake {
 
     @Override
     public String toString() {
-        return "Cupcake{" + "id=" + id + ", name=' " + name +
-        '\'' + ",price=" + price + ", frosting=" + frosting + '}';
+        return id + "  " + name +
+                " , " + price + " , " + frosting;
+    }
+
+    public Cupcake(JSONObject jsonObject) {
+        this.id = ((Long) jsonObject.get("id")).intValue();
+        this.name = (String) jsonObject.get("name");
+        this.price = (Double) jsonObject.get("price");
+
+        this.frosting = new ArrayList<>();
+        JSONArray frostingArray = jsonObject.getJSONArray("frosting");
+        for (int i = 0; i < frostingArray.length(); i++) {
+            this.frosting.add(frostingArray.getString(i));
+        }
     }
 }
