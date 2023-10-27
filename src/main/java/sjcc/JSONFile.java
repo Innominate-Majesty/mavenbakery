@@ -1,26 +1,27 @@
 package sjcc;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import org.json.simple.*;
 import org.json.simple.parser.*;
 
 public class JSONFile {
 
-  // read a json file and return an array
-  public static JSONArray readArray(String fileName) {
-    //
-    // read the birthday.json file and iterate over it
-    //
-
-    // JSON parser object to parse read file
+  //Read a JSON file and return an array of Cupcake objects
+  public static List<Cupcake> readCupcakes(String fileName) {
     JSONParser jsonParser = new JSONParser();
-
-    JSONArray data = null;
+    List<Cupcake> cupcakes = new ArrayList<>();
 
     try (FileReader reader = new FileReader(fileName)) {
       Object obj = jsonParser.parse(reader);
+      JSONArray cupcakeList = (JSONArray) obj;
 
-      data = (JSONArray) obj;
+      for (Object cupcakeObj : cupcakeList) {
+        JSONObject cupcakeJSON = (JSONObject) cupcakeObj;
+        Cupcake cupcake = parseCupcake(cupcakeJSON);
+        cupcakes.add(cupcake);
+      }
     } catch (FileNotFoundException e) {
       e.printStackTrace();
     } catch (IOException e) {
@@ -29,6 +30,17 @@ public class JSONFile {
       e.printStackTrace();
     }
 
-    return data;
+    return cupcakes;
   }
+  
+  //Parse JSONObject into a Cupcake object
+  private static Cupcake parseCupcake(JSONObject cupcakeJSON) {
+    int id = ((Long) cupcakeJSON.get("id")).intValue();
+    String name = (String) cupcakeJSON.get("name");
+    double price = (double) cupcakeJSON.get("price");
+    List<String> frosting = (List<String>) cupcakeJSON.get("frosting");
+
+    return new Cupcake(id, name, price, frosting);
+  }
+
 }

@@ -9,7 +9,7 @@ public class App
     {
 
         //Read cupcakes from the JSON file
-        JSONArray jsonArray = JSONFile.readArray();
+        JSONArray jsonArray = JSONFile.readArray(src/main/java/sjcc/cupcake_3906.json);
 
         //converting JSONArray to List<Cupcake>
         List<Cupcake> cupcakes = convertJsonArrayToCupcakesList(jsonArray);
