@@ -16,17 +16,34 @@ public class App {
             String filePath = resource.getPath();
             List<Cupcake> cupcakes = JSONFile.readCupcakes(filePath);
 
-
             //sorting the Array
             List<Cupcake> sortedCupcakes = Sorters.insertionSort(cupcakes);
 
+            //Updating the id of each cupcake to reflect its position in the new Array
+            for (int i = 0; i < sortedCupcakes.size(); i++) {
+                sortedCupcakes.get(i).setId(i + 1);
+            }
+
             //Printing the sorted cupcakes
+            double totalPrice = 0;
             for (Cupcake cupcake : sortedCupcakes) {
                 System.out.println(cupcake);
+                totalPrice += cupcake.getPrice();
             }
-        } else {
+
+            System.out.println("_______________________________________________________________________");
+            System.out.println("\n                                    Details");
+            System.out.println("_______________________________________________________________________");
+            System.out.println("\nNumber of items : " + sortedCupcakes.size());
+            System.out.printf("Average price : %.2f\n", totalPrice / sortedCupcakes.size());
+
+
+        }
+        else {
             System.out.println("File not found!");
         }
+
+
     }
 
     private static List<Cupcake> convertJsonArrayToCupcakesList(JSONArray jsonArray) {

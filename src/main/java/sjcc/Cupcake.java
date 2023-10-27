@@ -68,8 +68,10 @@ public class Cupcake {
 
     @Override
     public String toString() {
-        return id + "  " + name +
-                " , " + price + " , " + frosting;
+
+        return String.format("%-30d%-25s%-15.2f%s", id, name, price);
+        // return id + "  " + name +
+        //         "  " + price + "  " + frosting;
     }
 
     public Cupcake(JSONObject jsonObject) {

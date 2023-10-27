@@ -5,7 +5,10 @@ import java.util.List;
 public class Sorters {
     
     public static List<Cupcake> insertionSort(List<Cupcake> cupcakes) {
-        for (int i = 1; i < cupcakes.size(); i++) {
+
+        int n = cupcakes.size();
+
+        for (int i = 1; i < n; ++i) {
 
             Cupcake key = cupcakes.get(i);
             int j = i - 1;
