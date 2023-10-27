@@ -24,6 +24,10 @@ public class App {
                 sortedCupcakes.get(i).setId(i + 1);
             }
 
+            System.out.println("ID                            Name                      Price             Frosting");
+            System.out.println("_______________________________________________________________________________________________________________");
+
+
             //Printing the sorted cupcakes
             double totalPrice = 0;
             for (Cupcake cupcake : sortedCupcakes) {
@@ -31,9 +35,9 @@ public class App {
                 totalPrice += cupcake.getPrice();
             }
 
-            System.out.println("_______________________________________________________________________");
-            System.out.println("\n                                    Details");
-            System.out.println("_______________________________________________________________________");
+            System.out.println("_______________________________________________________________________________________________________________");
+            System.out.println("\n                                                Details");
+            System.out.println("_______________________________________________________________________________________________________________");
             System.out.println("\nNumber of items : " + sortedCupcakes.size());
             System.out.printf("Average price : %.2f\n", totalPrice / sortedCupcakes.size());
 

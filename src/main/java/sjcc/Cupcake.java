@@ -69,7 +69,7 @@ public class Cupcake {
     @Override
     public String toString() {
 
-        return String.format("%-30d%-25s%-15.2f%s", id, name, price);
+        return String.format("%-30d%-25s%-15.2f%s", id, name, price, frosting);
         // return id + "  " + name +
         //         "  " + price + "  " + frosting;
     }
